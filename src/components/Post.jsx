@@ -1,7 +1,7 @@
 const Post = (props) => {
     return (
         <div className="post">
-            <h1>{props.name}</h1>
+            <h2>{props.name}</h2>
             <p>{props.text}</p>
         </div>
     );

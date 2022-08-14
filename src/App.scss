@@ -1,5 +1,13 @@
-$bg-primary: #7ba0ff;
-$bg-button: #2dc2ff;
+$bg-primary: darken(#fff, 10%);
+$bg-button: #427E93;
+$borders: rgba(0, 0, 0, 0.25);
+$bg-hover: #f2f2f2;
+
+@import url('https://fonts.googleapis.com/css2?family=Gudea&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
 
 .app-wrapper {
   display: grid;
@@ -11,6 +19,7 @@ $bg-button: #2dc2ff;
   grid-gap: 10px;
 
   font-size: 14px;
+  font-family: 'Gudea', sans-serif;
   background-color: #f5f5f5;
 }
 
@@ -43,11 +52,11 @@ $bg-button: #2dc2ff;
       justify-content: space-between;
       width: 100px;
 
-      a{
+      a {
         color: black;
       }
 
-      a:hover{
+      a:hover {
         -webkit-animation: fa-spin 1s infinite linear;
         -moz-animation: fa-spin 1s infinite linear;
         -o-animation: fa-spin 1s infinite linear;
@@ -58,10 +67,10 @@ $bg-button: #2dc2ff;
 
 }
 
-.main-wrapper{
+.main-wrapper {
   grid-area: main;
   width: 1024px;
-  min-height: 50vh;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -70,48 +79,197 @@ $bg-button: #2dc2ff;
     width: 20%;
     font-size: 14px;
 
-    ul{
+    ul {
       list-style: none;
       width: 80%;
     }
-    li{
+
+    li {
       margin-top: 20px;
       width: inherit;
     }
-    a{
+
+    a {
       color: black;
       text-decoration: none;
-      padding: 5px 0px 5px 10px;
+      padding: 10px 5px;
       width: inherit;
       display: block;
+      overflow: hidden;
+      border-radius: 10px;
+
+      i {
+        padding-right: 5px;
+      }
+    }
+
+    a:hover {
+      background-color: $bg-button;
     }
   }
 
 
   .content {
     width: 60%;
-    border: 1px solid rgba(128, 128, 128, 0.63);
-    background-color: white;
 
-    .profile-header{
-      width: 100%;
-      height: 200px;
+    .profile {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
       overflow:hidden;
-
-      img{
+      .profile-header {
         width: 100%;
+        height: 200px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+
       }
 
+      .profile-info {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+      }
+
+      .profile-avatar {
+        position: relative;
+        left: 20px;
+        bottom: 80px;
+        margin-bottom: -80px;
+        width: 150px;
+        height: 150px;
+        padding: 5px;
+        background-color: white;
+        border-radius: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+
+      .profile-userinfo{
+        padding-top: 10px;
+
+        .username{
+          font-size: 18px;
+          font-weight: 600;
+        }
+        .date{
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .messages {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      border-radius: 10px;
+
+      .messages-users {
+        border-right: 1px solid $borders;
+        flex: 1;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        .messages-user {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          width: 100%;
+          height: 50px;
+          border-bottom: 1px solid $borders;
+
+          img {
+            height: 36px;
+            width: 36px;
+            border-radius: 100%;
+          }
+
+          .messages-username {
+            font-weight: 600;
+          }
+        }
+
+        .messages-user:hover {
+          background-color: $bg-hover;
+        }
+
+      }
+
+      .messages-all {
+        flex: 4;
+      }
     }
 
   }
 
-  .aside{
+  .aside {
     width: 20%;
   }
 
-  .active{
+  .active {
     background-color: $bg-button;
+    font-weight: 500;
+    color: white !important;
   }
 
+}
+
+.my-post {
+  border-radius: 20px;
+  margin-top: 20px;
+
+
+  .new-post{
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+
+    .new-post-add{
+      font-size: 24px;
+    }
+
+    textarea{
+      height: 60px;
+      width: 100%;
+      resize: none;
+    }
+
+    .send{
+      background-color: $bg-button;
+      padding: 5px;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      margin-left: 92%;//delete when you're planning to add file, photo, audio buttons
+    }
+  }
+  .posts-title{
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+  }
+
+  .post{
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px 0;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+  }
 }

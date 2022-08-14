@@ -1,4 +1,5 @@
 import logo from "../images/logo.svg";
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -7,9 +8,9 @@ const Header = () => {
                 <img src={logo} />
                 <input type="text" placeholder="Search"  className="search"/>
                 <div className="mini-profile">
-                    <a href="#"><i className="fa fa-cog"></i></a>
-                    <a href="#"><i className="fa fa-bell"></i></a>
-                    <a href="#"><i className="fa fa-user"></i></a>
+                    <NavLink to="#"><i className="fa fa-cog"></i></NavLink>
+                    <NavLink to="#"><i className="fa fa-bell"></i></NavLink>
+                    <NavLink to="#"><i className="fa fa-user"></i></NavLink>
                 </div>
             </div>
         </header>
