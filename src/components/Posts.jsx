@@ -1,16 +1,15 @@
 import Post from "./Post";
 
 let PostsData = [
-    {id: 1, text:"Just got my new car. Going to drive around a town tonight. Join me up!", postTitle:"New car"},
-    {id: 2, text:"That's cool", postTitle:"Done"},
-    {id: 3, text:"Waiting in the queue for my new car documents...", postTitle:"Documents"}
+    {id: 1, text: "Just got my new car. Going to drive around a town tonight. Join me up!", postTitle: "New car"},
+    {id: 2, text: "That's cool", postTitle: "Done"},
+    {id: 3, text: "Waiting in the queue for my new car documents...", postTitle: "Documents"},
+    {id: 4, text: "New user!", postTitle: "Hello"}
 ]
 
-let PostsElement = [
-    <Post postTitle={PostsData[0].postTitle} text={PostsData[0].text} />,
-    <Post postTitle={PostsData[1].postTitle} text={PostsData[1].text} />,
-    <Post postTitle={PostsData[2].postTitle} text={PostsData[2].text} />
-]
+
+let PostsElement = PostsData.map(post => <Post postTitle={post.postTitle} text={post.text}/>)
+
 const Posts = () => {
     return (
         <div className="my-post">

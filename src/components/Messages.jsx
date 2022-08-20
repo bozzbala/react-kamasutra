@@ -9,35 +9,21 @@ let DialogsData = [
 
 ]
 
-let DialogsElement = [
-    <Dialog username={DialogsData[0].username} id={DialogsData[0].id}
-            avatar={DialogsData[0].avatar}/>,
-    <Dialog username={DialogsData[1].username} id={DialogsData[1].id}
-            avatar={DialogsData[1].avatar}/>,
-    <Dialog username={DialogsData[2].username} id={DialogsData[2].id}
-            avatar={DialogsData[2].avatar}/>,
-    <Dialog username={DialogsData[3].username} id={DialogsData[3].id}
-            avatar={DialogsData[3].avatar}/>,
-    <Dialog username={DialogsData[4].username} id={DialogsData[4].id}
-            avatar={DialogsData[4].avatar}/>
-]
+let DialogsElement = DialogsData.map(dialog => <Dialog username={dialog.username} id={dialog.id}
+                                                       avatar={dialog.avatar}/>)
+
 
 let MessagesData = [
-    {id: 1, message:"Hello"},
-    {id: 2, message:"Hi"},
-    {id: 3, message:"How are you?"},
-    {id: 4, message:"I'm good thanks"}
+    {id: 1, message: "Hello"},
+    {id: 2, message: "Hi"},
+    {id: 3, message: "How are you?"},
+    {id: 4, message: "I'm good thanks"}
 ]
 
-let MessagesElement = [
-    <Message message={MessagesData[0].message} />,
-    <Message message={MessagesData[1].message} />,
-    <Message message={MessagesData[2].message} />,
-    <Message message={MessagesData[3].message} />
-]
+let MessagesElement = MessagesData.map(mes => <Message message={mes.message}/>)
 
 const Dialog = (props) => {
-    let path = props.id;
+    let path = "messages/" + props.id;
     return (
         <NavLink to={path}>
             <div className="messages-user">
@@ -60,7 +46,7 @@ const Messages = () => {
         <div className="content">
             <div className="messages">
                 <div className="messages-users">
-                    { DialogsElement }
+                    {DialogsElement}
                 </div>
                 <div className="messages-all">
                     {MessagesElement}
