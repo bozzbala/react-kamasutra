@@ -12,7 +12,7 @@ const Profile = () =>{
                         <img src="https://i.pinimg.com/280x280_RS/d9/3d/1e/d93d1e5086667faa7dae8086b76cc314.jpg" />
                     </div>
                     <div className="profile-userinfo">
-                        <p className="username">Temirlan Ibragimov</p>
+                        <p  className="username">Temirlan Ibragimov</p>
                         <p  className="date">12 Aug 2022</p>
                     </div>
                 </div>

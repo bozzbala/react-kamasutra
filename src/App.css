@@ -64,6 +64,11 @@
   width: 20%;
   font-size: 14px;
 }
+.main-wrapper .nav .active {
+  background-color: #427E93;
+  font-weight: 500;
+  color: white !important;
+}
 .main-wrapper .nav ul {
   list-style: none;
   width: 80%;
@@ -173,11 +178,6 @@
 }
 .main-wrapper .aside {
   width: 20%;
-}
-.main-wrapper .active {
-  background-color: #427E93;
-  font-weight: 500;
-  color: white !important;
 }
 
 .my-post {

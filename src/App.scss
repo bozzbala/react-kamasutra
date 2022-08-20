@@ -79,6 +79,12 @@ $bg-hover: #f2f2f2;
     width: 20%;
     font-size: 14px;
 
+    .active {
+      background-color: $bg-button;
+      font-weight: 500;
+      color: white !important;
+    }
+
     ul {
       list-style: none;
       width: 80%;
@@ -214,12 +220,6 @@ $bg-hover: #f2f2f2;
 
   .aside {
     width: 20%;
-  }
-
-  .active {
-    background-color: $bg-button;
-    font-weight: 500;
-    color: white !important;
   }
 
 }
