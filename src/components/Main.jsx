@@ -1,15 +1,15 @@
 import Nav from "./Nav";
 import {Route, Routes} from "react-router-dom";
 import Profile from "./Profile";
-import Messages from "./Messages";
+import Messages from "./Messages/Messages";
 import Aside from "./Aside";
 
-const Main = () => {
+const Main = (props) => {
     return <main className="main-wrapper">
         <Nav/>
         <Routes>
-            <Route path="/profile/*" element={<Profile />} />
-            <Route path="/messages/*" element={<Messages />} />
+            <Route path="/profile/*" element={<Profile posts={props.posts}/>} />
+            <Route path="/messages/*" element={<Messages dialogs={props.dialogs} messages={props.messages}/>} />
         </Routes>
         <Aside/>
     </main>

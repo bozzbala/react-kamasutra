@@ -1,6 +1,6 @@
-import Posts from "./Posts";
+import Posts from "./Posts/Posts";
 
-const Profile = () =>{
+const Profile = (props) =>{
     return(
         <div className="content">
             <div className="profile">
@@ -17,7 +17,7 @@ const Profile = () =>{
                     </div>
                 </div>
             </div>
-            <Posts />
+            <Posts posts={props.posts}/>
         </div>
     );
 }
