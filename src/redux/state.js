@@ -56,6 +56,8 @@ const addPost = () =>{
         postTitle: state.profilePage.newPostTitle
     }
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostTitle = "";
+    state.profilePage.newPostText = "";
     reRenderEntireTree(state)
 }
 

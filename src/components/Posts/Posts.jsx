@@ -13,6 +13,9 @@ const Posts = (props) => {
         props.updateNewPost(newText, newTitle)
         console.log(newTitle + " " + newText)
     }
+    let addPost = () =>{
+        props.addPost();
+    }
 
     return (
         <div className="my-post">
@@ -25,7 +28,7 @@ const Posts = (props) => {
                     <textarea placeholder="Text" ref={text}
                               onChange={onPostChange} value={props.profile.newPostText} />
                     <button
-                        className="send" onClick={ props.addPost} type="button">Send</button>
+                        className="send" onClick={ addPost} type="button">Send</button>
                 </form>
             </div>
             <p className="posts-title">Posts:</p>
