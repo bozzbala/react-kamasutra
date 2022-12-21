@@ -49,8 +49,13 @@ let state = {
     }
 }
 
-const addPost = (post) =>{
-    state.profilePage.posts.push(post);
+const addPost = () =>{
+    let newPost = {
+        id: state.profilePage.posts.length + 1,
+        text: state.profilePage.newPostText,
+        postTitle: state.profilePage.newPostTitle
+    }
+    state.profilePage.posts.push(newPost);
     reRenderEntireTree(state)
 }
 

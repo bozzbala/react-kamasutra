@@ -6,14 +6,6 @@ const Posts = (props) => {
     let PostsElement = props.posts.map(p => <Post postTitle={p.postTitle} text={p.text}/>)
     let title = createRef();
     let text = createRef();
-    let postCollect = () => {
-        let newPost = {
-            id: props.posts.length + 1,
-            text: text.current.value,
-            postTitle: title.current.value
-        }
-        props.addPost(newPost);
-    }
 
     let onPostChange = () =>{
         let newText = text.current.value;
@@ -33,7 +25,7 @@ const Posts = (props) => {
                     <textarea placeholder="Text" ref={text}
                               onChange={onPostChange} value={props.profile.newPostText} />
                     <button
-                        className="send" onClick={ postCollect} type="button">Send</button>
+                        className="send" onClick={ props.addPost} type="button">Send</button>
                 </form>
             </div>
             <p className="posts-title">Posts:</p>
