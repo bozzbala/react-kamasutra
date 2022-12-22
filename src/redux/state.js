@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST"
+const UPDATE_NEW_POST = "UPDATE-NEW-POST"
+
 let store = {
     _state: {
         profilePage: {
@@ -59,7 +62,7 @@ let store = {
     },
 
     dispatch(action) { //action = {type: '', args: ''}}
-        if(action.type === "ADD-POST"){
+        if(action.type === ADD_POST){
             let newPost = {
                 id: this._state.profilePage.posts.length + 1,
                 text: this._state.profilePage.newPostText,
@@ -70,12 +73,18 @@ let store = {
             this._state.profilePage.newPostText = "";
             this.reRenderEntireTree(this._state)
         }
-        else if(action.type === "UPDATE-NEW-POST"){
+        else if(action.type === UPDATE_NEW_POST){
             this._state.profilePage.newPostText = action.args.newText;
             this._state.profilePage.newPostTitle = action.args.newTitle
             this.reRenderEntireTree(this._state);
         }
     },
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostActionCreator = (newText, newTitle) => ({
+    type: UPDATE_NEW_POST,
+    args: {newText, newTitle},
+})
 
 export default store;
