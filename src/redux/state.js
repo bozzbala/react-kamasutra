@@ -47,30 +47,34 @@ let store = {
             ]
         }
     },
+    getState(){
+        return this._state
+    },
+
     reRenderEntireTree() {
         console.log("State changed")
-    },
-    addPost(){
-        let newPost = {
-            id: this._state.profilePage.posts.length + 1,
-            text: this._state.profilePage.newPostText,
-            postTitle: this._state.profilePage.newPostTitle
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostTitle = "";
-        this._state.profilePage.newPostText = "";
-        this.reRenderEntireTree(this._state)
-    },
-    updateNewPost(newText, newTitle){
-        this._state.profilePage.newPostText = newText;
-        this._state.profilePage.newPostTitle = newTitle
-        this.reRenderEntireTree(this._state);
     },
     subscribe(observer) {
         this.reRenderEntireTree = observer
     },
-    getState(){
-        return this._state
+
+    dispatch(action) { //action = {type: '', args: ''}}
+        if(action.type === "ADD-POST"){
+            let newPost = {
+                id: this._state.profilePage.posts.length + 1,
+                text: this._state.profilePage.newPostText,
+                postTitle: this._state.profilePage.newPostTitle
+            }
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostTitle = "";
+            this._state.profilePage.newPostText = "";
+            this.reRenderEntireTree(this._state)
+        }
+        else if(action.type === "UPDATE-NEW-POST"){
+            this._state.profilePage.newPostText = action.args.newText;
+            this._state.profilePage.newPostTitle = action.args.newTitle
+            this.reRenderEntireTree(this._state);
+        }
     },
 }
 

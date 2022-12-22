@@ -19,8 +19,7 @@ const Profile = (props) =>{
                     </div>
                 </div>
             </div>
-            <Posts posts={props.posts} addPost={props.addPost}
-                   updateNewPost={props.updateNewPost}
+            <Posts posts={props.posts} dispatch={props.dispatch}
                    profile={props.profile}/>
         </div>
     );

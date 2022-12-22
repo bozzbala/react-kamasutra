@@ -10,11 +10,18 @@ const Posts = (props) => {
     let onPostChange = () =>{
         let newText = text.current.value;
         let newTitle = title.current.value;
-        props.updateNewPost(newText, newTitle)
+        let action = {
+            type: "UPDATE-NEW-POST",
+            args: {newText, newTitle},
+        }
+        props.dispatch(action)
         console.log(newTitle + " " + newText)
     }
     let addPost = () =>{
-        props.addPost();
+        let action = {
+            type: "ADD-POST",
+        }
+        props.dispatch(action);
     }
 
     return (

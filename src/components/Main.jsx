@@ -8,8 +8,7 @@ const Main = (props) => {
     return <main className="main-wrapper">
         <Nav/>
         <Routes>
-            <Route path="/profile/*" element={<Profile posts={props.posts} addPost={props.addPost}
-                                                       updateNewPost={props.updateNewPost}
+            <Route path="/profile/*" element={<Profile posts={props.posts} dispatch={props.dispatch}
                                                        profile={props.profile}/>} />
             <Route path="/messages/*" element={<Messages dialogs={props.dialogs} messages={props.messages}/>} />
         </Routes>
