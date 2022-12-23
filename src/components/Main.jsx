@@ -10,7 +10,10 @@ const Main = (props) => {
         <Routes>
             <Route path="/profile/*" element={<Profile posts={props.posts} dispatch={props.dispatch}
                                                        profile={props.profile}/>} />
-            <Route path="/messages/*" element={<Messages dialogs={props.dialogs} messages={props.messages}/>} />
+            <Route path="/messages/*" element={<Messages dialogs={props.messagesPage.dialogs}
+                                                         messages={props.messagesPage.messages}
+                                                         newMsgText={props.messagesPage.newMessageText}
+                                                         dispatch={props.dispatch}/>} />
         </Routes>
         <Aside/>
     </main>

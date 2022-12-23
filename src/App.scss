@@ -176,6 +176,7 @@ $bg-hover: #f2f2f2;
       justify-content: space-between;
       background-color: white;
       border-radius: 10px;
+      height: 80%;
 
       .messages-users {
         border-right: 1px solid $borders;
@@ -213,6 +214,38 @@ $bg-hover: #f2f2f2;
 
       .messages-all {
         flex: 4;
+        background-color: #e0f9ff;
+        .messages-1{
+          height: 80%;
+          padding: 20px;
+        }
+        .messages-2{
+          height: 10%;
+          padding: 10px;
+          background-color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          textarea{
+            height: 100%;
+            width: 75%;
+            resize: none;
+            outline: none;
+            font-family: Arial;
+            padding: 5px;
+          }
+          .message-send{
+            width: 20%;
+            height: 70%;
+            background-color: #4195ea;
+            color: white;
+            font-size: 15px;
+            border-radius: 5px;
+            outline: none;
+            border:none;
+          }
+        }
       }
     }
 

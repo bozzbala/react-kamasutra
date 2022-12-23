@@ -145,6 +145,7 @@
   justify-content: space-between;
   background-color: white;
   border-radius: 10px;
+  height: 80%;
 }
 .main-wrapper .content .messages .messages-users {
   border-right: 1px solid rgba(0, 0, 0, 0.25);
@@ -175,6 +176,37 @@
 }
 .main-wrapper .content .messages .messages-all {
   flex: 4;
+  background-color: #e0f9ff;
+}
+.main-wrapper .content .messages .messages-all .messages-1 {
+  height: 80%;
+  padding: 20px;
+}
+.main-wrapper .content .messages .messages-all .messages-2 {
+  height: 10%;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-wrapper .content .messages .messages-all .messages-2 textarea {
+  height: 100%;
+  width: 75%;
+  resize: none;
+  outline: none;
+  font-family: Arial;
+  padding: 5px;
+}
+.main-wrapper .content .messages .messages-all .messages-2 .message-send {
+  width: 20%;
+  height: 70%;
+  background-color: #4195ea;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
 }
 .main-wrapper .aside {
   width: 20%;

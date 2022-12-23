@@ -1,11 +1,17 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST = "UPDATE-NEW-POST"
+const ADD_MESSAGE = "ADD-MESSAGE"
+const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE"
 
 let store = {
     _state: {
         profilePage: {
             posts: [
-                {id: 1, text: "Just got my new car. Going to drive around a town tonight. Join me up!", postTitle: "New car"},
+                {
+                    id: 1,
+                    text: "Just got my new car. Going to drive around a town tonight. Join me up!",
+                    postTitle: "New car"
+                },
                 {id: 2, text: "That's cool", postTitle: "Done"},
                 {id: 3, text: "Waiting in the queue for my new car documents...", postTitle: "Documents"},
                 {id: 4, text: "New user!", postTitle: "Hello"}
@@ -47,10 +53,11 @@ let store = {
                 {id: 2, message: "Hi"},
                 {id: 3, message: "How are you?"},
                 {id: 4, message: "I'm good thanks"}
-            ]
+            ],
+            newMessageText: "",
         }
     },
-    getState(){
+    getState() {
         return this._state
     },
 
@@ -62,7 +69,7 @@ let store = {
     },
 
     dispatch(action) { //action = {type: '', args: ''}}
-        if(action.type === ADD_POST){
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: this._state.profilePage.posts.length + 1,
                 text: this._state.profilePage.newPostText,
@@ -72,11 +79,21 @@ let store = {
             this._state.profilePage.newPostTitle = "";
             this._state.profilePage.newPostText = "";
             this.reRenderEntireTree(this._state)
-        }
-        else if(action.type === UPDATE_NEW_POST){
+        } else if (action.type === UPDATE_NEW_POST) {
             this._state.profilePage.newPostText = action.args.newText;
             this._state.profilePage.newPostTitle = action.args.newTitle
             this.reRenderEntireTree(this._state);
+        } else if (action.type === ADD_MESSAGE) {
+            let newMessage = {
+                id: this._state.messagesPage.messages.length + 1,
+                message: this._state.messagesPage.newMessageText
+            }
+            this._state.messagesPage.messages.push(newMessage)
+            this._state.messagesPage.newMessageText = ""
+            this.reRenderEntireTree(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE) {
+            this._state.messagesPage.newMessageText = action.message;
+            this.reRenderEntireTree(this._state)
         }
     },
 }
