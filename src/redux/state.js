@@ -1,6 +1,6 @@
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST = "UPDATE-NEW-POST"
-const ADD_MESSAGE = "ADD-MESSAGE"
+const SEND_MESSAGE = "SEND-MESSAGE"
 const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE"
 
 let store = {
@@ -61,11 +61,11 @@ let store = {
         return this._state
     },
 
-    reRenderEntireTree() {
+    _callSubscriber() {
         console.log("State changed")
     },
     subscribe(observer) {
-        this.reRenderEntireTree = observer
+        this._callSubscriber = observer
     },
 
     dispatch(action) { //action = {type: '', args: ''}}
@@ -78,30 +78,36 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostTitle = "";
             this._state.profilePage.newPostText = "";
-            this.reRenderEntireTree(this._state)
+            this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_POST) {
             this._state.profilePage.newPostText = action.args.newText;
             this._state.profilePage.newPostTitle = action.args.newTitle
-            this.reRenderEntireTree(this._state);
-        } else if (action.type === ADD_MESSAGE) {
+            this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
             let newMessage = {
                 id: this._state.messagesPage.messages.length + 1,
                 message: this._state.messagesPage.newMessageText
             }
             this._state.messagesPage.messages.push(newMessage)
             this._state.messagesPage.newMessageText = ""
-            this.reRenderEntireTree(this._state)
+            this._callSubscriber(this._state)
         } else if (action.type === UPDATE_NEW_MESSAGE) {
             this._state.messagesPage.newMessageText = action.message;
-            this.reRenderEntireTree(this._state)
+            this._callSubscriber(this._state)
         }
     },
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostActionCreator = (newText, newTitle) => ({
+export const addPostCreator = () => ({type: ADD_POST})
+export const updateNewPostCreator = (newText, newTitle) => ({
     type: UPDATE_NEW_POST,
     args: {newText, newTitle},
+})
+
+export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageCreator = (newMessage) => ({
+    type: UPDATE_NEW_MESSAGE,
+    message: newMessage,
 })
 
 export default store;

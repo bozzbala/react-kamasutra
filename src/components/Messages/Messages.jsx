@@ -1,7 +1,7 @@
 import Dialog from "./Dialog";
 import Message from "./Message";
 import {createRef} from "react";
-
+import {sendMessageCreator, updateNewMessageCreator} from "../../redux/state";
 
 const Messages = (props) => {
 
@@ -11,15 +11,12 @@ const Messages = (props) => {
 
     const newMessage = createRef()
     const addMessage = () => {
-        let action = {type: "ADD-MESSAGE"}
+        let action = sendMessageCreator()
         props.dispatch(action)
     }
 
     const onMessageChange = () => {
-        let action = {
-            type: "UPDATE-NEW-MESSAGE",
-            message: newMessage.current.value,
-        }
+        let action = updateNewMessageCreator(newMessage.current.value)
         props.dispatch(action)
     }
 
