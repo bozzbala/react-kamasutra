@@ -1,6 +1,6 @@
 import Post from "./Post";
 import {createRef} from "react";
-import {addPostCreator, updateNewPostCreator} from "../../redux/state";
+import {addPostCreator, updateNewPostCreator} from "../../redux/profileReducer";
 
 const Posts = (props) => {
 
